@@ -1,0 +1,5 @@
+---
+- include_tasks: docker-check.yml
+- include_tasks: docker-install.yml
+- include_tasks: docker-compose-check.yml
+- include_tasks: docker-compose-install.yml

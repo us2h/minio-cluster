@@ -1,0 +1,17 @@
+---
+- name: Check or create Minio proxy Docker Compose directory
+  ansible.builtin.file:
+    path: "{{ minio_proxy_path }}"
+    state: directory
+    mode: '0755'
+
+- name: Deploy Minio proxy Caddyfile
+  template:
+    src: caddyfile-minio.j2
+    dest: "{{ minio_proxy_path }}/Caddyfile"
+
+- name: Deploy Minio proxy Docker Compose configuration
+  template:
+    src: docker-compose-caddy.yml.j2
+    dest: "{{ minio_proxy_path }}/docker-compose.yml"
+  notify: Start Minio proxy

@@ -1,0 +1,23 @@
+# Retry files
+*.retry
+
+# Temporary Files
+*.tmp
+*.temp
+*.swp
+
+# Backup Files
+*~
+
+# Ansible Vault Files
+vault_password_file.txt
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Role dependencies
+roles/*/meta/.galaxy_install_info
+
+# macOS
+.DS_Store

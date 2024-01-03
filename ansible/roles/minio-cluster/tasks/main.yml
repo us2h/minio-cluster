@@ -1,0 +1,7 @@
+---
+- name: Ensure docker and docker-compose are installed
+  include_role: 
+    name: docker
+
+- name: Install Minio cluster
+  include_tasks: minio-cluster-install.yml

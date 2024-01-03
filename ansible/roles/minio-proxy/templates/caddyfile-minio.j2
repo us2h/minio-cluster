@@ -1,0 +1,19 @@
+{{ minio_proxy_domain }} {
+    reverse_proxy {{ groups['minio_servers'] | map('extract', hostvars, 'ip_address') | map('regex_replace', '$', ':9001') | map('regex_replace', '^', 'http://') | join(' ') }} {
+        lb_policy round_robin
+        health_uri /minio/health/live
+        health_interval 30s
+        health_timeout 20s
+        health_status 200
+    }
+}
+
+api.{{ minio_proxy_domain }} {
+    reverse_proxy {{ groups['minio_servers'] | map('extract', hostvars, 'ip_address') | map('regex_replace', '$', ':9000') | map('regex_replace', '^', 'http://') | join(' ') }} {
+        lb_policy round_robin
+        health_uri /minio/health/live
+        health_interval 30s
+        health_timeout 20s
+        health_status 200
+    }
+}

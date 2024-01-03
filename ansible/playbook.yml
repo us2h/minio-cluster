@@ -1,0 +1,15 @@
+- hosts: minio_servers
+  become: yes
+  roles:
+    - init
+    - minio-cluster
+  vars_files:
+    - vars/main.yml
+
+- hosts: minio_proxy
+  become: yes
+  roles:
+    - init
+    - minio-proxy
+  vars_files:
+    - vars/main.yml

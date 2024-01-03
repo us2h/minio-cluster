@@ -1,0 +1,5 @@
+---
+- name: Start Minio cluster
+  docker_compose:
+    project_src: "{{ minio_path }}"
+    state: present

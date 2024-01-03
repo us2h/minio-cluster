@@ -1,0 +1,5 @@
+---
+- name: Start Minio proxy
+  command:
+    cmd: "docker-compose up -d"
+    chdir: "/opt/caddy/"
