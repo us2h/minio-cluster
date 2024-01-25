@@ -4,6 +4,7 @@ services:
   {{ inventory_hostname }}:
     hostname: {{ inventory_hostname }}
     image: {{ minio_image }}
+    restart: unless-stopped
     command: server --console-address ":9001" http://minio{1...{{ groups['minio_servers']|length }}}/data
     ports:
       - "9000:9000"

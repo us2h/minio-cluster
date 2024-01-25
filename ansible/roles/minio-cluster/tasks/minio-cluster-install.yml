@@ -14,8 +14,8 @@
 - name: Ensure Docker SDK and Docker Compose for Python is installed
   ansible.builtin.pip:
     name:
-      - docker
-      - docker-compose
+      - "docker==6.1.3"
+      - "docker-compose"
     state: present
 
 - name: Deploy Minio Docker Compose configuration
