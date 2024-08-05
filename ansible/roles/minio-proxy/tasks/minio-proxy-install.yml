@@ -1,6 +1,6 @@
 ---
 - name: Check or create Minio proxy Docker Compose directory
-  ansible.builtin.file:
+  file:
     path: "{{ minio_proxy_path }}"
     state: directory
     mode: '0755'

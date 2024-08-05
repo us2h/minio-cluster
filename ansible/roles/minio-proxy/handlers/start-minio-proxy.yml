@@ -1,0 +1,5 @@
+---
+- name: Start Minio proxy
+  community.docker.docker_compose_v2:
+    project_src: "{{ minio_proxy_path }}"
+    state: present

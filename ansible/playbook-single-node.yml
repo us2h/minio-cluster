@@ -1,0 +1,8 @@
+- hosts: minio_single_node
+  become: yes
+  roles:
+    - init
+    - docker
+    - minio-single-node
+  vars_files:
+    - vars/main.yml

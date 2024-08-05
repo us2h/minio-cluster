@@ -1,0 +1,7 @@
+{{ minio_proxy_domain }} {
+    reverse_proxy minio:9001
+}
+
+api.{{ minio_proxy_domain }} {
+    reverse_proxy minio:9000
+}

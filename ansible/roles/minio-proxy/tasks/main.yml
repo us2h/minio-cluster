@@ -1,8 +1,7 @@
 ---
-- name: Ensure docker and docker-compose are installed
+- name: Ensure docker installed
   include_role: 
     name: docker
 
 - name: Install Minio proxy
   include_tasks: minio-proxy-install.yml
-

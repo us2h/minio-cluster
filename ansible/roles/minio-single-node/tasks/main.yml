@@ -1,0 +1,2 @@
+---
+- include_tasks: minio-single-node-install.yml
